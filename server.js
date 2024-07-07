@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('/api/search', async (req, res) => {
     const { query } = req.query;
     try {
+
         const response = await axios.get(`https://api.github.com/search/repositories?q=${query}`);
         res.json(response.data);
     } catch (error) {
